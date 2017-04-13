@@ -46,12 +46,12 @@ describe('Blackjack', function() {
     describe('#gameStartsNow()', function() {
         it('player gets two cards', function() {
             // let game = new Blackjack ('Chaudia', 'Jasmine');
-            let gameStartsNow = game.gameStartsNow(); //starts game
+            game.gameStartsNow(); //starts game
             assert.equal(game.playerGets.length, 2); //test player got two cards
         });
         it('dealer gets two cards', function() {
             // let game = new Blackjack ('Chaudia', 'Jasmine');
-            let gameStartsNow = game.gameStartsNow();
+            game.gameStartsNow();
             assert.equal(game.dealerGets.length, 2);
         })
     });
@@ -60,18 +60,18 @@ describe('Blackjack', function() {
     describe('#additionalCard', function() {
         it('player would like an additional card', function() {
             // let game = new Blackjack ('Chaudia', 'Jasmine');
-            let additionalCard = game.additionalCard();
-            let gameStartsNow = game.gameStartsNow();
+            game.gameStartsNow();
+            game.additionalCard();
             assert.equal(game.playerGets.length>2, true)
         })
     })
 
     //Player doesn't want anymore cards >Stand
-    describe('#custardsLastStand', function(){
+    describe('#custersLastStand', function(){
       it("player doesn't want anymore cards", function(){
-        let custardsLastStand = game.stand();
-        let gameStartsNow = game.gameStartsNow();
-        assert(game.stand)
+        game.gameStartsNow();
+        game.stand();
+        assert(game.dealersTurn);
       })
     })
 });
