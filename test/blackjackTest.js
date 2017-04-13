@@ -1,6 +1,6 @@
 // Aspects of Blackjack to Model
 
-//   - Once the player doesn't want any more cards, the dealer will ask for more cards until the dealer's hand is worth at least 17
+//   - the dealer will ask for more cards until the dealer's hand is worth at least 17
 //   - For today, assume that an Ace is worth 1, a face card (Jack, Queen, or King) is worth 10, and any other card is worth its number
 
 // COMPLETED
@@ -8,6 +8,7 @@
 //2. At the start of the game, the player gets two cards and so does the dealer
 //3. The player can ask for another card
 //------ The player can repeat that request as many times as desired
+//4. Once the player doesn't want any more cards, ...
 
 
 const assert = require('assert');
@@ -27,30 +28,24 @@ describe('Blackjack', function() {
     it('has a dealer', function() {
         assert.equal(game.dealer, 'Jasmine');
     });
-    ////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////
     it('has a player', function() {
-        // let game = new Blackjack('Chaudia');
         assert.equal(game.player, 'Chaudia');
     });
     it('has a dealer', function() {
-        // let game = new Blackjack('Chaudia', 'Jasmine');
         assert.equal(game.dealer, 'Jasmine')
     });
     it('has a deck of cards', function() {
-        // let game = new Blackjack('Chaudia', 'Jasmine');
         assert(52, game.deck.cards.length);
     })
-
 
     //Each player gets dealt two cards
     describe('#gameStartsNow()', function() {
         it('player gets two cards', function() {
-            // let game = new Blackjack ('Chaudia', 'Jasmine');
             game.gameStartsNow(); //starts game
             assert.equal(game.playerGets.length, 2); //test player got two cards
         });
         it('dealer gets two cards', function() {
-            // let game = new Blackjack ('Chaudia', 'Jasmine');
             game.gameStartsNow();
             assert.equal(game.dealerGets.length, 2);
         })
@@ -59,19 +54,24 @@ describe('Blackjack', function() {
     //The player can ask for another card
     describe('#additionalCard', function() {
         it('player would like an additional card', function() {
-            // let game = new Blackjack ('Chaudia', 'Jasmine');
             game.gameStartsNow();
             game.additionalCard();
-            assert.equal(game.playerGets.length>2, true)
+            assert.equal(game.playerGets.length > 2, true)
         })
     })
 
     //Player doesn't want anymore cards >Stand
-    describe('#custersLastStand', function(){
-      it("player doesn't want anymore cards", function(){
-        game.gameStartsNow();
-        game.stand();
-        assert(game.dealersTurn);
-      })
+    describe('#custersLastStand', function() {
+        it("player doesn't want anymore cards", function() {
+            game.gameStartsNow();
+            game.stand();
+            assert(game.dealersTurn);
+        })
     })
+
+    //Dealer asks for more cards
+    describe()
+
+
+    //Dealers hand is worth at least 17
 });
