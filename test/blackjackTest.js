@@ -28,13 +28,7 @@ describe('Blackjack', function() {
     it('has a dealer', function() {
         assert.equal(game.dealer, 'Jasmine');
     });
-    /////////////////////////////////////////////////////////////
-    // it('has a player', function() {
-    //     assert.equal(game.player, 'Chaudia');
-    // });
-    // it('has a dealer', function() {
-    //     assert.equal(game.dealer, 'Jasmine')
-    // });
+
     it('has a deck of cards', function() {
         assert(game.deck.cards.length, 52);
     })
@@ -69,14 +63,13 @@ describe('Blackjack', function() {
         })
     })
 
-    //Dealer asks for more cards
+    // Dealer asks for more cards
     describe('#dealerContinues', function() {
         it('dealer would like to continue to receive cards until hand value is at <= 17', function() {
             game.gameStartsNow();
             game.additionalCard();
-            game.dealerCardValue();
-            // assert.equal(game.dealerGets.length);
+            game.getDealerHandValue();
+            // assert.equal(game.dealerCardValue <=17);
         })
     })
-
 });
